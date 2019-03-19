@@ -1,0 +1,8 @@
+<h2>Les utilisateurs</h2>
+
+<button (click)="onButtonClick()">Load</button>
+
+<app-user-card 
+  *ngFor="let user of users"
+  [currentUser]="user">
+</app-user-card>
