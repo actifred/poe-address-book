@@ -1,22 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlterncasePipe } from './alterncase.pipe';
+import { HomeComponent } from './home/home.component';
+
+const routes: Route[] = [
+  {
+    path: 'users',
+    component: UserListComponent
+  },
+  {
+    path: '',
+    component: HomeComponent
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserCardComponent,
-    AlterncasePipe
+    AlterncasePipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
