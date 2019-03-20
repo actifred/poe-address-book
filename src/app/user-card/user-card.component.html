@@ -1,4 +1,15 @@
-<p>
-  Utilisateur: {{ currentUser.name.first }} {{ currentUser.name.last }}
-</p>
+<div class="user-card">
+  <div class="user-avatar">
+    <img [src]="currentUser.picture.thumbnail">
+  </div>
+  <div class="user-details">
+    <p>
+        {{ currentUser.name.title }} {{ currentUser.name.first }} {{ currentUser.name.last | uppercase }}
+    </p>
+    <p>
+      Tel: {{ currentUser.phone }}<br/>
+      Email: <a href="mailto:{{ currentUser.email }}">Envoyer un email</a>
+    </p>
+  </div>
+</div>
 

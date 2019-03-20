@@ -11,7 +11,7 @@ export class UserManagerService {
 
   constructor(private _httpClient: HttpClient) { 
     this._httpClient
-      .get('https://randomuser.me/api/?results=10')
+      .get('https://randomuser.me/api/?results=10&gender=female')
       .subscribe( (resultat) => {
         this._users = resultat['results'];
       } );

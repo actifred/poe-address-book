@@ -11,14 +11,7 @@ export class UserListComponent implements OnInit {
 
   public users: User[];
 
-  constructor(private _userManager: UserManagerService) { 
-    // this.users = [];
-    // let utilisateur = new User();
-    // utilisateur.name = new UserName();
-    // utilisateur.name.first = 'John';
-    // utilisateur.name.last = 'Lennon';
-    // this.users.push(utilisateur);
-  }
+  constructor(private _userManager: UserManagerService) { }
 
   onButtonClick() {
     this.users = this._userManager.getUserList();

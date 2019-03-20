@@ -1,0 +1,19 @@
+.user-card {
+    padding: 10px;
+    margin: 4px;
+    border: solid 1px #777;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.5);
+    display: flex;
+}
+
+.user-avatar {
+    margin: 2px;
+}
+
+.user-details {
+    margin-left: 10px;
+}
+
+img {
+    border-radius: 50%;
+}
