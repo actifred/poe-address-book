@@ -8,11 +8,16 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlterncasePipe } from './alterncase.pipe';
 import { HomeComponent } from './home/home.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Route[] = [
   {
     path: 'users',
     component: UserListComponent
+  },
+  {
+    path: 'user/:userid',
+    component: UserDetailsComponent
   },
   {
     path: '',
@@ -26,7 +31,8 @@ const routes: Route[] = [
     UserListComponent,
     UserCardComponent,
     AlterncasePipe,
-    HomeComponent
+    HomeComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ export class UserPicture {
 }
 
 export class User {
+    id: number;
     gender: string;
     name: UserName;
     email: string;

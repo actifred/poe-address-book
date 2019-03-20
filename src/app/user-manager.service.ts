@@ -14,10 +14,17 @@ export class UserManagerService {
       .get('https://randomuser.me/api/?results=10&gender=female')
       .subscribe( (resultat) => {
         this._users = resultat['results'];
+        for (let i=0; i<this._users.length; i++) {
+          this._users[i].id = i;
+        }
       } );
   }
 
   public getUserList() {
     return this._users;
+  }
+
+  public getUser(id: number) {
+    return this._users[id];
   }
 }

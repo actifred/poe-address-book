@@ -1,0 +1,10 @@
+<p *ngIf="currentUser">
+  Utilisateur courant:<br/>
+  {{ currentUser.name.first }} {{ currentUser.name.last }}<br/>
+  {{ currentUser.id }}<br/>
+
+  <a *ngIf="currentUser.id > 0"
+  routerLink="/user/{{ currentUser.id - 1 }}"> << Précédent</a><br/>
+  <a  *ngIf="currentUser.id < 9"
+  routerLink="/user/{{ currentUser.id + 1 }}">Suivant >> </a>
+</p>
