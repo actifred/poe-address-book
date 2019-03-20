@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserManagerService } from '../user-manager.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -17,12 +17,13 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
   routeSub: Subscription;
 
-  formulaire: FormGroup;
+  formulaire;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _userManager: UserManagerService
+    private _userManager: UserManagerService,
+    private _fb: FormBuilder
   ) { 
     this.routeSub = this._activatedRoute.params.subscribe((resultat) => {
       this.currentUserId = resultat.userid;
@@ -32,10 +33,10 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.formulaire = new FormGroup({
-      firstname: new FormControl(this.currentUser.name.first, []),
-      lastname: new FormControl(this.currentUser.name.last, []),
-      email: new FormControl(this.currentUser.email, [])
+    this.formulaire = this._fb.group({
+      firstname: this._fb.control(this.currentUser.name.first, []),
+      lastname: this._fb.control(this.currentUser.name.last, []),
+      email: this._fb.control(this.currentUser.email, [])
     });
   }
 
