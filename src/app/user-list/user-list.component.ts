@@ -20,4 +20,9 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSearch(valeur) {
+    let valeurRecherchee = valeur.recherche;
+    this.users = this._userManager.getUserMatchingSearchInName(valeurRecherchee);
+  }
+
 }

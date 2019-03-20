@@ -1,8 +1,13 @@
 <h2>Les utilisateurs</h2>
 
-<button (click)="onButtonClick()">Load</button>
+<form #maRecherche="ngForm" (ngSubmit)="onSearch(maRecherche.value)">
+  <input type="text" placeholder="chercher un utilisateur" name="recherche" ngModel>
+  <input type="submit" value="Go">
+</form>
 
 <app-user-card 
   *ngFor="let user of users"
   [currentUser]="user">
 </app-user-card>
+
+<button (click)="onButtonClick()">Load</button>
