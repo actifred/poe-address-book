@@ -3,6 +3,8 @@
   {{ currentUser.name.first }} {{ currentUser.name.last }}<br/>
   {{ currentUser.id }}<br/>
 
+  <a routerLink="/user/{{currentUser.id}}/edit">Modifier</a>
+
   <a *ngIf="currentUser.id > 0"
   routerLink="/user/{{ currentUser.id - 1 }}"> << Précédent</a><br/>
   <a  *ngIf="currentUser.id < 9"

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlterncasePipe } from './alterncase.pipe';
 import { HomeComponent } from './home/home.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Route[] = [
   {
@@ -19,6 +20,10 @@ const routes: Route[] = [
   {
     path: 'user/:userid',
     component: UserDetailsComponent
+  },
+  {
+    path: 'user/:userid/edit',
+    component: UserFormComponent
   },
   {
     path: '',
@@ -33,12 +38,14 @@ const routes: Route[] = [
     UserCardComponent,
     AlterncasePipe,
     HomeComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

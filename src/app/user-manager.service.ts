@@ -37,4 +37,8 @@ export class UserManagerService {
       }
     );
   }
+
+  public updateUser(modifiedUser: User) {
+    this._users[modifiedUser.id] = modifiedUser;
+  }
 }
