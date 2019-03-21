@@ -4,7 +4,11 @@
   [formGroup]="formulaire"
   (ngSubmit)="modifieUtilisateur()">
   <input type="text" formControlName="firstname">
+  <span *ngIf="formulaire.controls.firstname.errors" class="error">Ce champs est requis</span><br>
   <input type="text" formControlName="lastname">
-  <input type="text" formControlName="email">
-  <button type="submit">Changer</button>
+  <span *ngIf="formulaire.controls.lastname.errors" class="error">Ce champs a une erreur</span><br>
+  <span *ngIf="formulaire.controls.lastname.errors?.tropcourt" class="error">Ce champs doit avoir au moins 3 caractères</span><br>
+  <span *ngIf="formulaire.controls.lastname.errors?.troplong" class="error">Ce champs doit avoir au plus 9 caractères</span><br>
+  <input type="text" formControlName="email"><br>
+  <button type="submit" [disabled]="!formulaire.valid" >Changer</button>
 </form>

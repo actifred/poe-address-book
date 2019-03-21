@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserManagerService } from '../user-manager.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -34,10 +34,25 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.formulaire = this._fb.group({
-      firstname: this._fb.control(this.currentUser.name.first, []),
-      lastname: this._fb.control(this.currentUser.name.last, []),
+      firstname: this._fb.control(this.currentUser.name.first, [Validators.required]),
+      lastname: this._fb.control(this.currentUser.name.last, [this.auMoins3Caracteres]),
       email: this._fb.control(this.currentUser.email, [])
     });
+  }
+
+  auMoins3Caracteres(controle) {
+    if (controle.value.length>3) {
+      if (controle.value.length<10)
+        return null;
+      else
+      return { 
+        troplong: true 
+      };
+    } else {
+      return { 
+        tropcourt: true 
+      };
+    }
   }
 
   modifieUtilisateur() {
